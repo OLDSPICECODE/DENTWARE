@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CA-014 Controlador tratamiento</title>
+    <title>CA-038 Datos médicos del paciente</title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic|Source+Code+Pro:300,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../assets/css/bootstrap.css">
 <link rel="stylesheet" href="../assets/css/jquery.bonsai.css">
@@ -19,7 +19,7 @@
 
       <!-- Name Title -->
 
-      <h1>CA-014 Controlador tratamiento</h1>
+      <h1>CA-038 Datos médicos del paciente</h1>
 
       <!-- Type and Stereotype -->
 
@@ -29,7 +29,7 @@
           UMLClass
         </span>
         
-          <span style="margin-left: 10px" class="alert alert-info"><a href='10782e1f6a86d9cb1e476fbd7249c31a.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«control»</a></span>
+          <span style="margin-left: 10px" class="alert alert-info"><a href='417bc0616caf3df8e7284597c463b5db.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«boundary»</a></span>
         
       </section>
 
@@ -49,7 +49,7 @@
           <span class="label label-info"><a href='f28348fde1c410c126b369316dda6efb.html'><span class='node-icon staruml-icon icon-UMLModel'></span>Modelo de clases de análisis</a></span>
         
           <span>::</span>
-          <span class="label label-info"><a href='c98047c502c93c7e263feacaeba9f656.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-014 Controlador tratamiento</a></span>
+          <span class="label label-info"><a href='adc393740e1b1af66a8697b69deee1aa.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«boundary»CA-038 Datos médicos del paciente</a></span>
         
       </section>
 
@@ -64,7 +64,7 @@
         <h3>Description</h3>
         <div>
           
-            <p>Controlador que se encarga de recibir las peticiones de modificar datos de los pagos con todas las interfaces que corresponden al manejo de los pagos. Redirige las peticiones a CA-012 para obtener una respuesta.</p>
+            <p>Clase contenedora que agrupa las ventanas que permiten observar y modificar datos médicos de los pacientes.</p>
           
         </div>
       </section>
@@ -238,7 +238,7 @@
     
     <tr>
         <td>name</td>
-        <td>CA-014 Controlador tratamiento</td>
+        <td>CA-038 Datos médicos del paciente</td>
     </tr>
     
     
@@ -253,7 +253,7 @@
     
     <tr>
         <td>stereotype</td>
-        <td><a href='10782e1f6a86d9cb1e476fbd7249c31a.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«control»</a></td>
+        <td><a href='417bc0616caf3df8e7284597c463b5db.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«boundary»</a></td>
     </tr>
     
     
@@ -330,15 +330,6 @@
 
         
         
-<section class="element-list">
-    <h3>Dependencies</h3>
-    <ul class="nav nav-list">
-        
-        <li><a href='74dbb143b653dfd8177fdeaa103acdf3.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-012 Controlador sistema</a></li>
-        
-    </ul>
-</section>
-
 
 
         
@@ -354,17 +345,17 @@
     <h3>Relationships</h3>
     <ul class="nav nav-list">
         
-        <li><a href='e94283ddf0c3b85fdf5c34f3783bdd4c.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-014 Controlador tratamiento—CA-008 Odontograma)</a></li>
+        <li><a href='4c446b03e8b756fc21604afd88789bba.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-037 Ventana exámenes estomatológicos—CA-038 Datos médicos del paciente)</a></li>
         
-        <li><a href='50aff76b58f28b91eea72a9e04cd0920.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-014 Controlador tratamiento→CA-012 Controlador sistema)</a></li>
+        <li><a href='3087efdb54f086ea5d9fbf390ac2df66.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-036 Ventana antecedentes médicos—CA-038 Datos médicos del paciente)</a></li>
         
-        <li><a href='2f485e62fed1dfd77c52199da96e428d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-027 Crear tratamiento—CA-014 Controlador tratamiento)</a></li>
+        <li><a href='d4c9e531f07087dd5b8d0f3667ceac1e.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-035 Ventana contraindicaciones médicas—CA-038 Datos médicos del paciente)</a></li>
         
-        <li><a href='901fa0bce808f00a7596e2945ce4be8d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-028  Ventana tratamiento—CA-014 Controlador tratamiento)</a></li>
+        <li><a href='752f29df67286c1a75cb224ab66cdf7d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-023 Creación de paciente)</a></li>
         
-        <li><a href='613fc3e5a6c842598379be4fa089dd30.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-029 Registro de sesión—CA-014 Controlador tratamiento)</a></li>
+        <li><a href='e9f39d2effd8336b697255d1e003c167.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-024 Ficha de paciente)</a></li>
         
-        <li><a href='9b7deebfee594f4c6d3be7666e32d55a.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-033 Ventana odontograma—CA-014 Controlador tratamiento)</a></li>
+        <li><a href='127b54918f54e3772cb3d2f0eb51d143.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-025 Actualización datos de paciente)</a></li>
         
     </ul>
 </section>
@@ -379,9 +370,11 @@
     <h3>Owned Elements</h3>
     <ul class="nav nav-list">
         
-        <li><a href='e94283ddf0c3b85fdf5c34f3783bdd4c.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-014 Controlador tratamiento—CA-008 Odontograma)</a></li>
+        <li><a href='752f29df67286c1a75cb224ab66cdf7d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-023 Creación de paciente)</a></li>
         
-        <li><a href='50aff76b58f28b91eea72a9e04cd0920.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-014 Controlador tratamiento→CA-012 Controlador sistema)</a></li>
+        <li><a href='e9f39d2effd8336b697255d1e003c167.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-024 Ficha de paciente)</a></li>
+        
+        <li><a href='127b54918f54e3772cb3d2f0eb51d143.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-038 Datos médicos del paciente—CA-025 Actualización datos de paciente)</a></li>
         
     </ul>
 </section>

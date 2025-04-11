@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CA-012 Controlador sistema</title>
+    <title>CA-033 Ventana odontograma</title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic|Source+Code+Pro:300,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../assets/css/bootstrap.css">
 <link rel="stylesheet" href="../assets/css/jquery.bonsai.css">
@@ -19,7 +19,7 @@
 
       <!-- Name Title -->
 
-      <h1>CA-012 Controlador sistema</h1>
+      <h1>CA-033 Ventana odontograma</h1>
 
       <!-- Type and Stereotype -->
 
@@ -29,7 +29,7 @@
           UMLClass
         </span>
         
-          <span style="margin-left: 10px" class="alert alert-info"><a href='10782e1f6a86d9cb1e476fbd7249c31a.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«control»</a></span>
+          <span style="margin-left: 10px" class="alert alert-info"><a href='417bc0616caf3df8e7284597c463b5db.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«boundary»</a></span>
         
       </section>
 
@@ -49,7 +49,7 @@
           <span class="label label-info"><a href='f28348fde1c410c126b369316dda6efb.html'><span class='node-icon staruml-icon icon-UMLModel'></span>Modelo de clases de análisis</a></span>
         
           <span>::</span>
-          <span class="label label-info"><a href='74dbb143b653dfd8177fdeaa103acdf3.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-012 Controlador sistema</a></span>
+          <span class="label label-info"><a href='99c63ce7eda5623a5e4e06ef4d79beba.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«boundary»CA-033 Ventana odontograma</a></span>
         
       </section>
 
@@ -64,7 +64,7 @@
         <h3>Description</h3>
         <div>
           
-            <p>Controlador principal del sistema, maneja el inicio de sesión, la búsqueda y la creación de pacientes. Es el encargado de coordinar los controladores que manejan el frontend con los controladores que manejan la base de datos.</p>
+            <p>Ventana que permitirá observar y modificar un odontograma, incluyendo el area de dibujo y demás elementos.</p>
           
         </div>
       </section>
@@ -238,7 +238,7 @@
     
     <tr>
         <td>name</td>
-        <td>CA-012 Controlador sistema</td>
+        <td>CA-033 Ventana odontograma</td>
     </tr>
     
     
@@ -253,7 +253,7 @@
     
     <tr>
         <td>stereotype</td>
-        <td><a href='10782e1f6a86d9cb1e476fbd7249c31a.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«control»</a></td>
+        <td><a href='417bc0616caf3df8e7284597c463b5db.html'><span class='node-icon staruml-icon icon-UMLStereotype'></span>«boundary»</a></td>
     </tr>
     
     
@@ -334,29 +334,6 @@
 
         
         
-<section class="element-list">
-    <h3>Dependants</h3>
-    <ul class="nav nav-list">
-        
-        <li><a href='c0edef425f3e0f7dc64f9ee231c1d74f.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-013 Controlador paciente</a></li>
-        
-        <li><a href='c98047c502c93c7e263feacaeba9f656.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-014 Controlador tratamiento</a></li>
-        
-        <li><a href='146ef41bc3d67df2bc7c75adc4345150.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-015 Controlador pagos</a></li>
-        
-        <li><a href='b97e4b3bbc130d578d42fc5d880c389c.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-016 Controlador odontograma</a></li>
-        
-        <li><a href='99f2ba055b65259b6d3e62d18ca4e84b.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-017 Controlador datos de paciente</a></li>
-        
-        <li><a href='a8430181031ddce62e4c3912b6a283b9.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-018 Controlador datos de tratamiento</a></li>
-        
-        <li><a href='fba90034078aac57e2806c85cb9843bd.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-019 Controlador datos de pagos</a></li>
-        
-        <li><a href='59759ae2c3c5561f355522c1e66e1e5e.html'><span class='node-icon staruml-icon icon-UMLClass'></span>«control»CA-020 Controlador datos de odontograma</a></li>
-        
-    </ul>
-</section>
-
 
       
 
@@ -368,27 +345,11 @@
     <h3>Relationships</h3>
     <ul class="nav nav-list">
         
-        <li><a href='f6c3dd24bf75884e0548663b2b759dc4.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-013 Controlador paciente→CA-012 Controlador sistema)</a></li>
+        <li><a href='9b7deebfee594f4c6d3be7666e32d55a.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-033 Ventana odontograma—CA-014 Controlador tratamiento)</a></li>
         
-        <li><a href='50aff76b58f28b91eea72a9e04cd0920.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-014 Controlador tratamiento→CA-012 Controlador sistema)</a></li>
+        <li><a href='50f03f7d46609dd69d46059a3e797898.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-033 Ventana odontograma—CA-016 Controlador odontograma)</a></li>
         
-        <li><a href='517654004f6288af03211f7013e0cbe0.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-015 Controlador pagos→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='29dd668ad5b2ec495a96ef24f70e1578.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-016 Controlador odontograma→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='c8c0028fd4c92aaa268b2b180f8ff272.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-017 Controlador datos de paciente→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='7eceba3115e56e68e996b8b24c1677bc.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-018 Controlador datos de tratamiento→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='2f6c2021dfc2b73ee4faffd6e90c3f73.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-019 Controlador datos de pagos→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='96027c0357608f336b1dba885d5ea4df.html'><span class='node-icon staruml-icon icon-UMLDependency'></span>(CA-020 Controlador datos de odontograma→CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='697f9fc43778f8e10ea6669851054af1.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-021 Inicio de sesión—CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='f33ab39645a283f4b40ecb7a58a59282.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-022 Búsqueda de pacientes—CA-012 Controlador sistema)</a></li>
-        
-        <li><a href='8e7e150672f7f185baec11d52e3b2761.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-023 Creación de paciente—CA-012 Controlador sistema)</a></li>
+        <li><a href='e0f35e45e01e81ee974900a9a8964eb4.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-034 Área de dibujo de odontograma—CA-033 Ventana odontograma)</a></li>
         
     </ul>
 </section>
@@ -399,6 +360,17 @@
 
       
       
+<section class="element-list">
+    <h3>Owned Elements</h3>
+    <ul class="nav nav-list">
+        
+        <li><a href='9b7deebfee594f4c6d3be7666e32d55a.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-033 Ventana odontograma—CA-014 Controlador tratamiento)</a></li>
+        
+        <li><a href='50f03f7d46609dd69d46059a3e797898.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(CA-033 Ventana odontograma—CA-016 Controlador odontograma)</a></li>
+        
+    </ul>
+</section>
+
 
 
       <!-- Diagrams -->
