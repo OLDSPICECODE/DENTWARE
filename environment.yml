@@ -1,0 +1,7 @@
+name: DENT
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pyside6=6.6.1
