@@ -1,0 +1,52 @@
+/* Estilo general */
+QWidget {
+    background-color: white;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16px;
+    color: #2E2D6D;
+}
+
+/* Botones principales */
+QPushButton {
+    background-color: #2E2D6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    min-height: 40px;
+}
+
+QPushButton:hover {
+    background-color: #4746a3;
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+}
+
+/* Línea de entrada */
+QLineEdit {
+    border: 2px solid #2E2D6D;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+/* Encabezado */
+QLabel#HeaderTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2E2D6D;
+}
+
+/* Botón de navegación tipo "< volver" */
+QPushButton#NavButton {
+    background-color: transparent;
+    color: #2E2D6D;
+    font-size: 16px;
+    text-align: left;
+    padding: 4px 0;
+    font-weight: normal;
+}

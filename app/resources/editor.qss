@@ -1,0 +1,69 @@
+QWidget {
+    background-color: white;  /* Fondo blanco para todas las ventanas */
+    font-family: "Segoe UI", sans-serif;  /* Tipografía */
+    font-size: 16px;  /* Tamaño de fuente */
+    color: #2E2D6D;  /* Color del texto */
+}
+
+/* Botones principales */
+#SB {
+    background-color: #2E2D6D;  /* Fondo de los botones */
+    color: white;  /* Color del texto */
+    border: none;  /* Sin bordes */
+    padding: 10px 20px;  /* Relleno de los botones */
+    font-weight: bold;  /* Negrita */
+    border-radius: 5px;  /* Bordes redondeados */
+    min-height: 40px;  /* Altura mínima */
+    min-width: 150px;  /* Ancho mínimo */
+    margin-left: 10px;  /* Márgen izquierdo */
+}
+
+#OB {
+    background-color: #c8d6f7;  /* Fondo de los botones */
+    color: blue;  /* Color del texto */
+    border: none;  /* Sin bordes */
+    padding: 10px 20px;  /* Relleno de los botones */
+    font-weight: bold;  /* Negrita */
+    border-radius: 5px;  /* Bordes redondeados */
+    min-height: 40px;  /* Altura mínima */
+    min-width: 150px;  /* Ancho mínimo */
+    margin-left: 10px;  /* Márgen izquierdo */
+}
+
+
+QPushButton:hover {
+    background-color: #4746a3;  /* Color de fondo cuando el cursor pasa por encima */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;  /* Color de fondo cuando el botón está deshabilitado */
+    color: #666666;  /* Color del texto cuando está deshabilitado */
+}
+
+/* Línea de entrada (QLineEdit) */
+QLineEdit {
+    border: 2px solid #2E2D6D;  /* Borde de la línea de entrada */
+    border-radius: 5px;  /* Bordes redondeados */
+    padding: 6px;  /* Espaciado interno */
+    font-size: 14px;  /* Tamaño de fuente */
+    margin-bottom: 10px;  /* Márgen inferior */
+}
+
+/* Estilo para el encabezado */
+QLabel#HeaderTitle {
+    font-size: 22px;  /* Tamaño grande para el título */
+    font-weight: bold;  /* Negrita */
+    color: #2E2D6D;  /* Color del texto */
+}
+
+/* Estilo para el botón de navegación */
+QPushButton#NavButton {
+    background-color: transparent;  /* Fondo transparente */
+    color: #2E2D6D;  /* Color del texto */
+    font-size: 16px;  /* Tamaño de fuente */
+    text-align: left;  /* Alineación a la izquierda */
+    padding: 4px 0;  /* Relleno vertical */
+    font-weight: normal;  /* Peso normal */
+    border: none;  /* Sin bordes */
+    margin-left: 10px;  /* Márgen izquierdo */
+}
