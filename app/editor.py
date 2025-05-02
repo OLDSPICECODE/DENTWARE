@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QVBoxLayout, QHBoxLayout, QPushButton, QFileDialog, QWidget, QLineEdit, QLabel, QGraphicsEllipseItem, QGraphicsRectItem, QFrame
 from PySide6.QtGui import QPixmap, QPainter, QPen, QColor, QBrush, QImage, QFont, QFontMetrics
+from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import Qt, QRectF
 import os
 
@@ -267,11 +268,52 @@ class OdontogramaEditor(QWidget):
     def deshacer_ultima_anotacion(self):
         if self.current_scene:
             self.current_scene.deshacer_ultima_anotacion()
+    
+    def mostrar_mensaje(self, titulo, mensaje, tipo="info"):
+        box = QMessageBox(self)
+        box.setWindowTitle(titulo)
+        box.setText(mensaje)
+        
+        if tipo == "info":
+            box.setIcon(QMessageBox.Information)
+        elif tipo == "error":
+            box.setIcon(QMessageBox.Critical)
+        
+        # Estilo personalizado
+        box.setStyleSheet("""
+            QMessageBox {
+                background-color: white;
+                font-family: 'Segoe UI', sans-serif;
+                font-size: 16px;
+                color: #2E2D6D;
+            }
+            QPushButton {
+                background-color: #2E2D6D;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                font-weight: bold;
+                border-radius: 5px;
+                min-width: 100px;
+            }
+            QPushButton:hover {
+                background-color: #4746a3;
+            }
+        """)
+        box.exec()
+
 
     def guardar_imagen(self):
         file_name, _ = QFileDialog.getSaveFileName(self, "Guardar Imagen", "", "PNG (*.png)")
         if file_name:
-            self.current_scene.save_image(file_name)
+            try:
+                self.current_scene.save_image(file_name)
+                self.mostrar_mensaje("Éxito", "Imagen guardada exitosamente.", tipo="info")
+            except Exception as e:
+                print(f"Error al guardar la imagen: {e}")
+                self.mostrar_mensaje("Error", "Ocurrió un error al guardar la imagen. Intenta nuevamente.", tipo="error")
+
+
 
     def keyPressEvent(self, event):
         """Detecta cuando se presiona Ctrl+Z y deshace la última anotación."""
