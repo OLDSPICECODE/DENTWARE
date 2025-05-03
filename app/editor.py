@@ -4,6 +4,8 @@ from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import Qt, QRectF
 import os
 
+from app.db_config import obtener_conexion
+
 def get_resource_path(filename):
     return os.path.join(os.path.dirname(__file__), "resources", filename)
 
@@ -147,14 +149,21 @@ class DrawingScene(QGraphicsScene):
             self.annotations.pop()
 
 class OdontogramaEditor(QWidget):
-    def __init__(self, modo="Modo Edición", modo_funcion="crear", texto_nav="Odontograma", parent=None, nav_pile=[]):
+    def __init__(self, modo="Modo Edición", modo_funcion="crear", texto_nav="Odontograma", parent=None, nav_pile=[], cnx=None):
         super().__init__(parent)
+        self.cnx = obtener_conexion()  # Llamamos a la función para obtener la conexión
+        if self.cnx:
+            print("Conexión a la base de datos establecida exitosamente en el editor")
+        else:
+            print("No se pudo establecer la conexión a la base de datos en el editor")
         self.modo = modo
         self.modo_funcion = modo_funcion
         self.texto_nav = texto_nav
         self.parent = parent
         self.volver_callback = None
         self.current_color = Qt.blue  # Color inicial del trazo (azul por defecto)
+        # Resto del código...
+
 
         self.setWindowTitle("Editor de Odontograma")
 
@@ -222,8 +231,28 @@ class OdontogramaEditor(QWidget):
 
         content_layout.addLayout(tools_layout)
 
-        # CANVAS
-        image_path = get_resource_path("ODON.png") if self.modo_funcion == "crear" else get_resource_path("antecedente.png")
+        # CANVAS 
+        if self.modo_funcion == "crear":
+            # Si está en modo "crear", se asigna una imagen predeterminada
+            image_path = get_resource_path("ODON.png")
+        else:
+            # Si no está en modo "crear", se consulta la base de datos para obtener la ruta del archivo
+            cursor = self.cnx.cursor()
+            cursor.execute("SELECT ruta_archivo FROM public.historia_clinica_odontograma LIMIT 1")
+            
+            # Obtenemos el resultado de la consulta
+            result = cursor.fetchone()
+            
+            if result:
+                # Si la consulta devuelve un resultado, asignamos la ruta a image_path
+                image_path = result[0]
+            else:
+                # Si no se encuentra un resultado, asignamos una ruta predeterminada o mostramos un mensaje de error
+                image_path = get_resource_path("ODON.png")
+            
+            # Cerramos el cursor después de la consulta
+            cursor.close()
+
         self.scene = DrawingScene(image_path, self.current_color)  # Pasar el color al constructor
         self.current_scene = self.scene
         view = QGraphicsView(self.scene)
@@ -304,14 +333,54 @@ class OdontogramaEditor(QWidget):
 
 
     def guardar_imagen(self):
-        file_name, _ = QFileDialog.getSaveFileName(self, "Guardar Imagen", "", "PNG (*.png)")
-        if file_name:
-            try:
-                self.current_scene.save_image(file_name)
-                self.mostrar_mensaje("Éxito", "Imagen guardada exitosamente.", tipo="info")
-            except Exception as e:
-                print(f"Error al guardar la imagen: {e}")
-                self.mostrar_mensaje("Error", "Ocurrió un error al guardar la imagen. Intenta nuevamente.", tipo="error")
+        directorio_destino = "C:\\Users\\renzo\\OneDrive\\Documents\\GitHub\\DENTWARE\\app\\resources"
+
+        if not os.path.exists(directorio_destino):
+            os.makedirs(directorio_destino)
+        file_name = os.path.join(directorio_destino, "odontograma.png")
+
+        try:
+            self.current_scene.save_image(file_name)
+            self.subir_a_bd(file_name)
+
+            self.mostrar_mensaje("Éxito", "Imagen guardada y subida exitosamente.", tipo="info")
+        
+        except Exception as e:
+            print(f"Error al guardar la imagen: {e}")
+            self.mostrar_mensaje("Error", "Ocurrió un error al guardar la imagen. Intenta nuevamente.", tipo="error")
+
+    def subir_a_bd(self, file_path):
+        cursor = None
+        try:
+            if not self.cnx:
+                raise Exception("Conexión no disponible.")
+
+            cursor = self.cnx.cursor()  # Usar la conexión proporcionada
+
+            historia_clinica_id = 1  # Puedes ajustarlo según tu lógica
+            insert_query = """
+                INSERT INTO public.historia_clinica_odontograma 
+                (historia_clinica_id, ultima_edicion, ruta_archivo)
+                VALUES (%s, CURRENT_DATE, %s)
+            """
+
+            # Ejecutar la inserción
+            cursor.execute(insert_query, (historia_clinica_id, file_path))
+
+            # Confirmar la transacción
+            self.cnx.commit()  # Usamos la conexión para hacer commit
+
+            print("Ruta de imagen subida a la base de datos exitosamente.")
+
+        except Exception as e:
+            print("Error al subir la ruta a la base de datos:", e)
+            if self.cnx:
+                self.cnx.rollback()  # Hacer rollback si algo falla
+
+        finally:
+            # Cerrar el cursor correctamente
+            if cursor:
+                cursor.close()  # Asegurarse de cerrar el cursor
 
 
 

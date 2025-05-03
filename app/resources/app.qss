@@ -1,0 +1,87 @@
+/* Estilo general */
+QWidget {
+    background-color: #FFFFFF;  /* Fondo blanco */
+    font-family: "Arial", sans-serif;
+}
+
+/* Barra superior */
+#header_label {
+    font-size: 24px;
+    color: #1E2A5A;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+/* Barra de búsqueda centrada y más grande */
+#search_bar {
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 30px;
+    width: 400px;  /* Hacer la barra más grande */
+    height: 50px;
+    border: 2px solid #1E2A5A;  /* Borde azul */
+    font-size: 18px;  /* Aumentar el tamaño de la fuente */
+}
+
+/* Botones (uno encima del otro, con borde azul) */
+QPushButton {
+    background-color: #FFFFFF;
+    color: #1E2A5A;
+    border-radius: 12px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #1E2A5A;  /* Borde azul */
+    margin-left: 30px;  /* Márgenes a los costados */
+    margin-right: 30px;
+}
+
+QPushButton:hover {
+    background-color: #3A5BDC;
+}
+
+QPushButton:pressed {
+    background-color: #2F4DA3;
+}
+
+/* Botón de pacientes */
+#patient_count_button {
+    background-color: #FFFFFF;
+    color: #1E2A5A;
+    min-height: 15px;
+    min-width:125px;
+    max-height: 15px;
+    max-width:125px;
+    border-radius: 12px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #1E2A5A;
+    margin-right: 30px;
+}
+
+QPushButton#patient_count_button:hover {
+    background-color: #3A5BDC;
+}
+
+QPushButton#patient_count_button:pressed {
+    background-color: #2F4DA3;
+}
+
+/* Etiquetas de estadísticas */
+QLabel {
+    font-size: 18px;
+    color: #1D2A5A;
+    margin-top: 15px;
+}
+
+/* Contenedor de los botones con fondo celeste y opaco */
+QFrame #BC {
+    background-color: #c8d6f7;  /* Celeste con opacidad */
+}
+
+/* Frame para el contenedor */
+QFrame {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
