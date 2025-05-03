@@ -14,7 +14,7 @@ class MainApp(QMainWindow):
         self.func = ""  # Función de la app (para controlar el modo de operación)
 
         # Instanciar la pantalla de DentwareApp (Ventana principal de la app)
-        self.dentware_app = DentwareApp()
+        self.dentware_app = DentwareApp(parent=self)
 
         # Establecer DentwareApp como el widget central de la ventana principal
         self.setCentralWidget(self.dentware_app)

@@ -149,7 +149,7 @@ class DrawingScene(QGraphicsScene):
             self.annotations.pop()
 
 class OdontogramaEditor(QWidget):
-    def __init__(self, modo="Modo Edición", modo_funcion="crear", texto_nav="Odontograma", parent=None, nav_pile=[], cnx=None):
+    def __init__(self, modo="Modo Edición", modo_funcion="crear", texto_nav="Odontograma", parent=None, nav_pile=[]):
         super().__init__(parent)
         self.cnx = obtener_conexion()  # Llamamos a la función para obtener la conexión
         if self.cnx:
