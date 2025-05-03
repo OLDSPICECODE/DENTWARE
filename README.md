@@ -13,13 +13,14 @@ Este repositorio contiene el entorno de desarrollo para **Dentware**. Para confi
    ```bash
    git clone https://github.com/tu_usuario/tu_repositorio.git
    cd tu_repositorio
-   
+   ```
 2. Crear el entorno con Conda usando el archivo environment.yml:
 
   ```bash
     conda env create -f environment.yml
-
+   ```
 3. Este comando creará un entorno Conda llamado DENT con todas las dependencias necesarias. Activar el entorno:
 
   ```bash
     conda activate DENT
+   ```
