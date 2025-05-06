@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DENT - Instalación y configuración
 
 Este repositorio contiene el entorno de desarrollo para **Dentware**. Para configurar y comenzar a trabajar con este proyecto, sigue las instrucciones a continuación.
