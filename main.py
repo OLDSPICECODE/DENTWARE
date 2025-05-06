@@ -21,6 +21,7 @@ class MainApp(QMainWindow):
 
         # Mostrar la ventana maximizada
         self.showMaximized()
+        self.setFixedSize(1280, 720)
         self.setStyleSheet("background-color:white")  # Estilo de fondo de la ventana
 
     def volver_a_cliente(self):

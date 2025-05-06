@@ -79,7 +79,7 @@ class VentanaSeleccion(QWidget):
     def abrir_editor(self, modo, texto_boton):
         """Cambia a la ventana de editor con los parámetros correctos."""
         self.parent.np.append(texto_boton)  # Agrega la opción al historial de navegación
-        self.parent.abrir_editor(self.modo_funcion, texto_boton)  # Cambiar a la ventana de editor
+        self.parent.abrir_editor(modo, texto_boton)  # Cambiar a la ventana de editor
 
     def volver_a_cliente(self):
         self.parent.np.pop()  # Elimina la última opción de navegación

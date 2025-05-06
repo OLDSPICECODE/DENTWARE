@@ -149,6 +149,8 @@ class DrawingScene(QGraphicsScene):
             self.annotations.pop()
 
 class OdontogramaEditor(QWidget):
+    historia_clinica_id = 5
+
     def __init__(self, modo="Modo Edición", modo_funcion="crear", texto_nav="Odontograma", parent=None, nav_pile=[]):
         super().__init__(parent)
         self.cnx = obtener_conexion()  # Llamamos a la función para obtener la conexión
@@ -236,6 +238,10 @@ class OdontogramaEditor(QWidget):
             # Si está en modo "crear", se asigna una imagen predeterminada
             image_path = get_resource_path("ODON.png")
         else:
+            image_path = f"./app/resources/odontograma-{self.historia_clinica_id}-{self.modo}.png"
+            if not os.path.exists(image_path):
+                image_path = get_resource_path("ODON.png")
+            '''
             # Si no está en modo "crear", se consulta la base de datos para obtener la ruta del archivo
             cursor = self.cnx.cursor()
             cursor.execute("SELECT ruta_archivo FROM public.historia_clinica_odontograma LIMIT 1")
@@ -252,6 +258,7 @@ class OdontogramaEditor(QWidget):
             
             # Cerramos el cursor después de la consulta
             cursor.close()
+            '''
 
         self.scene = DrawingScene(image_path, self.current_color)  # Pasar el color al constructor
         self.current_scene = self.scene
@@ -333,15 +340,16 @@ class OdontogramaEditor(QWidget):
 
 
     def guardar_imagen(self):
-        directorio_destino = "C:\\Users\\renzo\\OneDrive\\Documents\\GitHub\\DENTWARE\\app\\resources"
+        print(self.modo)
+        directorio_destino = "./app/resources"
 
         if not os.path.exists(directorio_destino):
             os.makedirs(directorio_destino)
-        file_name = os.path.join(directorio_destino, "odontograma.png")
+        file_name = os.path.join(directorio_destino, f"odontograma-{self.historia_clinica_id}-{self.modo}.png")
 
         try:
             self.current_scene.save_image(file_name)
-            self.subir_a_bd(file_name)
+            #self.subir_a_bd(file_name)
 
             self.mostrar_mensaje("Éxito", "Imagen guardada y subida exitosamente.", tipo="info")
         
@@ -357,15 +365,14 @@ class OdontogramaEditor(QWidget):
 
             cursor = self.cnx.cursor()  # Usar la conexión proporcionada
 
-            historia_clinica_id = 1  # Puedes ajustarlo según tu lógica
             insert_query = """
                 INSERT INTO public.historia_clinica_odontograma 
-                (historia_clinica_id, ultima_edicion, ruta_archivo)
-                VALUES (%s, CURRENT_DATE, %s)
+                (historia_clinica_id, tipo_odontograma, ultima_edicion, ruta_archivo)
+                VALUES (%s, %s, CURRENT_DATE, %s)
             """
 
             # Ejecutar la inserción
-            cursor.execute(insert_query, (historia_clinica_id, file_path))
+            cursor.execute(insert_query, (self.historia_clinica_id, self.modo, file_path))
 
             # Confirmar la transacción
             self.cnx.commit()  # Usamos la conexión para hacer commit

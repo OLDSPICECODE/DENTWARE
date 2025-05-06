@@ -20,6 +20,7 @@ class DentwareApp(QWidget):
             print("Conexión a la base de datos establecida exitosamente en el editor")
         else:
             print("No se pudo establecer la conexión a la base de datos en el editor")
+            sys.exit(1)
 
         # Número dinámico de pacientes (esto se puede cambiar según sea necesario)
         self.num_pacientes = 120  # Número simulado de pacientes

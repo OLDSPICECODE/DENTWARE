@@ -3,9 +3,9 @@ import psycopg2
 def obtener_conexion():
     # Parámetros de conexión
     host = "localhost"  # Dirección de tu servidor PostgreSQL
-    dbname = "DENTWARE_BD"  # Nombre de tu base de datos
+    dbname = "postgres"  # Nombre de tu base de datos
     user = "postgres"  # Tu usuario de PostgreSQL
-    password = "ABCD1234"  # Tu contraseña de PostgreSQL
+    password = "postgres"  # Tu contraseña de PostgreSQL
 
     # Conectar a la base de datos
     try:
